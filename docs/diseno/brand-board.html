@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand board · Bodega COCOA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600&family=Source+Sans+3:wght@400;700&display=swap">
+<style>
+:root {
+  --color-primario: #3d2914; --color-acento: #1a4f4c; --color-texto: #1c1612; --color-texto-secundario: #5c5148;
+  --color-fondo: #f3ebdd; --color-superficie: #ffffff; --color-borde: #e4d8c8; --color-borde-campo: #6b5e54;
+  --color-exito: #1e5c34; --color-exito-fondo: #e3f3e7; --color-info: #1a4a78; --color-info-fondo: #e4eef8;
+  --color-prestamo: #0e4f48; --color-prestamo-fondo: #e3f3f0; --color-aviso: #8a5300; --color-aviso-fondo: #fbf1df;
+  --color-error: #9b1c1c; --color-error-fondo: #fbecea; --color-vencida: #7a2e0e; --color-vencida-fondo: #f8e6d8;
+  --color-no-retirada: #243644; --color-no-retirada-fondo: #e7eef2; --color-neutro: #4a4a4a; --color-neutro-fondo: #edeae6;
+  --color-mantenimiento: #5c3d00; --color-mantenimiento-fondo: #f8efd4; --color-danado: #6b2a12; --color-danado-fondo: #f8e6dc;
+  --fuente-titulos: "Newsreader", Georgia, serif; --fuente-texto: "Source Sans 3", system-ui, sans-serif;
+  --espacio-1: 4px; --espacio-2: 8px; --espacio-3: 12px; --espacio-4: 16px; --espacio-5: 24px; --espacio-6: 32px; --espacio-7: 48px;
+  --radio-control: 10px; --radio-tarjeta: 16px; --radio-etiqueta: 999px;
+  --sombra-tarjeta: 0 1px 2px rgb(61 41 20 / 0.08), 0 4px 12px rgb(61 41 20 / 0.06);
+}
+* { box-sizing: border-box; }
+html { background: var(--color-fondo); }
+body { margin: 0; background: var(--color-fondo); color: var(--color-texto); font-family: var(--fuente-texto); font-size: 16px; line-height: 1.5; }
+h1, h2, h3, h4 { font-family: var(--fuente-titulos); font-weight: 600; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+.pagina { max-width: 1200px; margin: 0 auto; padding: var(--espacio-7) var(--espacio-5); display: flex; flex-direction: column; gap: 64px; }
+.cabecera { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--espacio-6); align-items: end; }
+.eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-texto-secundario); }
+.cabecera h1 { font-size: 64px; color: var(--color-primario); margin-top: var(--espacio-2); }
+.concepto { font-size: 22px; margin-top: var(--espacio-4); max-width: 36ch; }
+.claves { display: flex; gap: var(--espacio-2); flex-wrap: wrap; margin-top: var(--espacio-4); }
+.clave { border: 1px solid var(--color-borde); border-radius: var(--radio-etiqueta); padding: var(--espacio-1) var(--espacio-3); font-weight: 700; font-size: 14px; background: var(--color-superficie); }
+.contexto { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-tarjeta); padding: var(--espacio-5); }
+.contexto h3 { font-size: 20px; margin-bottom: var(--espacio-2); }
+.seccion { display: flex; flex-direction: column; gap: var(--espacio-5); }
+.seccion > h2 { font-size: 36px; }
+.seccion > .sub { color: var(--color-texto-secundario); margin-top: calc(-1 * var(--espacio-3)); }
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--espacio-4); }
+.swatch { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-tarjeta); overflow: hidden; }
+.swatch .muestra { height: 96px; display: flex; align-items: flex-end; padding: var(--espacio-3); font-weight: 700; font-size: 14px; }
+.swatch .info { padding: var(--espacio-3) var(--espacio-4) var(--espacio-4); font-size: 14px; }
+.swatch .info b { display: block; font-size: 16px; }
+.swatch code { font-size: 13px; color: var(--color-texto-secundario); }
+.estados-paleta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--espacio-3); }
+.par { border-radius: var(--radio-control); padding: var(--espacio-3); font-size: 14px; font-weight: 700; }
+.par span { display: block; font-weight: 400; font-size: 13px; margin-top: var(--espacio-1); }
+.grupo-label { font-size: 14px; font-weight: 700; color: var(--color-texto-secundario); letter-spacing: .04em; text-transform: uppercase; }
+.dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-5); }
+.tarjeta { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-tarjeta); padding: var(--espacio-5); }
+.escala > div { display: flex; align-items: baseline; justify-content: space-between; gap: var(--espacio-4); padding: var(--espacio-3) 0; border-bottom: 1px solid var(--color-borde); }
+.escala > div:last-child { border-bottom: none; }
+.escala small { color: var(--color-texto-secundario); font-size: 14px; white-space: nowrap; }
+.espacios { display: flex; align-items: flex-end; gap: var(--espacio-4); flex-wrap: wrap; margin-top: var(--espacio-4); }
+.espacios div { text-align: center; font-size: 14px; color: var(--color-texto-secundario); }
+.espacios i { display: block; background: var(--color-primario); margin: 0 auto var(--espacio-1); border-radius: 2px; }
+.radios { display: flex; gap: var(--espacio-4); margin-top: var(--espacio-5); flex-wrap: wrap; }
+.radios div { width: 96px; height: 64px; border: 2px solid var(--color-primario); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--color-texto-secundario); text-align: center; }
+.componentes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--espacio-5); }
+.componentes h3 { font-size: 18px; margin-bottom: var(--espacio-4); }
+.btn { min-height: 44px; padding: var(--espacio-3) var(--espacio-5); border-radius: var(--radio-control); font: inherit; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.btn-primario { background: var(--color-primario); color: #fff; border: none; }
+.btn-secundario { background: var(--color-superficie); color: var(--color-primario); border: 2px solid var(--color-primario); }
+.pila { display: flex; flex-direction: column; gap: var(--espacio-3); align-items: flex-start; }
+.campo { display: flex; flex-direction: column; gap: var(--espacio-2); width: 100%; }
+.campo label { font-weight: 700; }
+.campo .input { min-height: 44px; border: 1px solid var(--color-borde-campo); border-radius: var(--radio-control); padding: var(--espacio-2) var(--espacio-3); background: var(--color-superficie); }
+.campo.error .input { border: 2px solid var(--color-error); }
+.campo .ayuda { font-size: 14px; color: var(--color-texto-secundario); }
+.campo .msg-error { font-size: 14px; color: var(--color-error); display: flex; gap: var(--espacio-1); align-items: center; }
+.equipo { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-tarjeta); overflow: hidden; box-shadow: var(--sombra-tarjeta); width: 100%; }
+.equipo .foto { height: 96px; background: var(--color-fondo); display: flex; align-items: center; justify-content: center; color: var(--color-primario); }
+.equipo .cuerpo { padding: var(--espacio-4); }
+.equipo h4 { font-size: 20px; }
+.equipo p { font-size: 14px; color: var(--color-texto-secundario); margin-top: var(--espacio-1); }
+.equipo .quedan { margin-top: var(--espacio-3); font-weight: 700; font-size: 14px; color: var(--color-texto); }
+.equipo.fuera { box-shadow: none; background: var(--color-fondo); }
+.equipo.fuera h4 { color: var(--color-texto-secundario); }
+.fechas { display: grid; grid-template-columns: 1fr 1fr; gap: var(--espacio-3); width: 100%; }
+.etiqueta { display: inline-flex; align-items: center; border-radius: var(--radio-etiqueta); padding: var(--espacio-1) var(--espacio-3); font-size: 14px; font-weight: 700; white-space: nowrap; }
+tr.elegida td:first-child { box-shadow: inset 4px 0 0 var(--color-primario); }
+.e-pendiente { background: var(--color-aviso-fondo); color: var(--color-aviso); }
+.e-aprobada { background: var(--color-info-fondo); color: var(--color-info); }
+.e-prestamo { background: var(--color-prestamo-fondo); color: var(--color-prestamo); }
+.e-devuelta { background: var(--color-exito-fondo); color: var(--color-exito); }
+.e-rechazada { background: var(--color-error-fondo); color: var(--color-error); }
+.e-cancelada { background: var(--color-neutro-fondo); color: var(--color-neutro); }
+.e-noretirada { background: var(--color-no-retirada-fondo); color: var(--color-no-retirada); }
+.e-vencida { background: var(--color-vencida-fondo); color: var(--color-vencida); }
+.e-mantenimiento { background: var(--color-mantenimiento-fondo); color: var(--color-mantenimiento); }
+.e-danado { background: var(--color-danado-fondo); color: var(--color-danado); }
+.pills { display: flex; flex-wrap: wrap; gap: var(--espacio-2); }
+.mensaje { display: flex; gap: var(--espacio-2); align-items: flex-start; border-radius: var(--radio-tarjeta); padding: var(--espacio-3) var(--espacio-4); font-size: 15px; width: 100%; }
+.m-exito { background: var(--color-exito-fondo); color: var(--color-exito); }
+.m-error { background: var(--color-error-fondo); color: var(--color-error); }
+.m-carga { background: var(--color-superficie); border: 1px dashed var(--color-borde-campo); color: var(--color-texto); }
+.vacia { border: 1px dashed var(--color-borde-campo); border-radius: var(--radio-tarjeta); padding: var(--espacio-4); width: 100%; display: flex; flex-direction: column; gap: var(--espacio-3); align-items: flex-start; }
+svg.ico { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+.pantallas { display: grid; grid-template-columns: 380px 1fr; gap: var(--espacio-6); align-items: start; }
+.movil { background: var(--color-fondo); border: 10px solid var(--color-texto); border-radius: 36px; overflow: hidden; }
+.movil .barra { background: var(--color-superficie); border-bottom: 1px solid var(--color-borde); padding: var(--espacio-3) var(--espacio-4); font-family: var(--fuente-titulos); font-weight: 600; color: var(--color-primario); font-size: 18px; }
+.movil .cuerpo { padding: var(--espacio-4); display: flex; flex-direction: column; gap: var(--espacio-4); }
+.movil h3 { font-size: 26px; }
+.estado-pedido { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-tarjeta); padding: var(--espacio-4); display: flex; flex-direction: column; gap: var(--espacio-2); }
+.escritorio { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-tarjeta); overflow: hidden; }
+.escritorio .barra { padding: var(--espacio-3) var(--espacio-5); border-bottom: 1px solid var(--color-borde); font-family: var(--fuente-titulos); font-weight: 600; color: var(--color-primario); font-size: 18px; display: flex; justify-content: space-between; gap: var(--espacio-3); }
+.escritorio .barra span { font-family: var(--fuente-texto); font-weight: 400; font-size: 14px; color: var(--color-texto-secundario); }
+.escritorio .cuerpo { padding: var(--espacio-5); display: flex; flex-direction: column; gap: var(--espacio-4); }
+.filtros { display: flex; gap: var(--espacio-2); flex-wrap: wrap; }
+.filtro { border: 1px solid var(--color-borde-campo); border-radius: var(--radio-etiqueta); padding: var(--espacio-1) var(--espacio-3); font-size: 14px; }
+.filtro.activo { background: var(--color-texto); color: #fff; border-color: var(--color-texto); font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { text-align: left; background: var(--color-primario); color: #fff; padding: var(--espacio-3); font-weight: 700; }
+td { padding: var(--espacio-3); border-top: 1px solid var(--color-borde); vertical-align: top; }
+td a { color: var(--color-acento); font-weight: 700; }
+.nota { margin-top: var(--espacio-2); padding: var(--espacio-2) var(--espacio-3); border-left: 4px solid var(--color-primario); background: var(--color-fondo); font-size: 14px; }
+.nota b { display: block; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+.acciones { display: flex; gap: var(--espacio-3); flex-wrap: wrap; }
+.tono { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--espacio-4); }
+.tono .si, .tono .no { border-radius: var(--radio-control); padding: var(--espacio-3) var(--espacio-4); font-size: 15px; }
+.tono .si { background: var(--color-exito-fondo); }
+.tono .no { background: var(--color-neutro-fondo); color: var(--color-neutro); margin-top: var(--espacio-2); text-decoration: line-through; text-decoration-color: rgb(74 74 74 / .5); }
+.tono b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--espacio-1); text-decoration: none; }
+.reglas ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: var(--espacio-2); }
+.pie { font-size: 14px; color: var(--color-texto-secundario); border-top: 1px solid var(--color-borde); padding-top: var(--espacio-4); }
+@media (max-width: 900px) {
+  .cabecera, .dos, .pantallas { grid-template-columns: 1fr; }
+  .swatches, .estados-paleta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .componentes, .tono { grid-template-columns: 1fr; }
+  .cabecera h1 { font-size: 44px; }
+  .movil { max-width: 380px; }
+  .escritorio { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="cabecera">
+    <div>
+      <p class="eyebrow">Brand board · v1.0 · noviembre 2026</p>
+      <h1>Bodega COCOA</h1>
+      <p class="concepto">La ficha de préstamo de la bodega: eliges el equipo, ves si te lo prestaron y sabes cuándo devolverlo.</p>
+      <div class="claves"><span class="clave">claro</span><span class="clave">preciso</span><span class="clave">bodega</span></div>
+    </div>
+    <div class="contexto">
+      <h3>Quién la usa y dónde</h3>
+      <p>El estudiante arma la reserva entre clases y la sigue hasta retirar y devolver. El administrador la aprueba en la computadora de la bodega, con varias personas delante. El cliente no fijó el dispositivo: esta pieza está pensada para el celular del estudiante y para esa computadora. El estado tiene que leerse de un vistazo.</p>
+    </div>
+  </header>
+
+  <section class="seccion">
+    <h2>Color</h2>
+    <p class="sub">Cacao para la marca y las acciones. Verde ficha solo para enlaces y foco. Todo texto cumple 4.5:1 o más.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="muestra" style="background:var(--color-primario);color:#fff">Aa 13.7:1</div><div class="info"><b>Cacao</b><code>--color-primario · #3D2914</code><p>Botón primario, encabezados, marca</p></div></div>
+      <div class="swatch"><div class="muestra" style="background:var(--color-acento);color:#fff">Aa 9.2:1</div><div class="info"><b>Verde ficha</b><code>--color-acento · #1A4F4C</code><p>Enlaces y foco. Nunca en botones</p></div></div>
+      <div class="swatch"><div class="muestra" style="background:var(--color-fondo);color:var(--color-texto);border-bottom:1px solid var(--color-borde)">Aa 15.1:1</div><div class="info"><b>Tinta</b><code>--color-texto · #1C1612</code><p>Texto principal sobre papel</p></div></div>
+      <div class="swatch"><div class="muestra" style="background:var(--color-fondo);color:var(--color-texto-secundario);border-bottom:1px solid var(--color-borde)">Aa 6.5:1</div><div class="info"><b>Papel y cartón</b><code>--color-fondo · #F3EBDD</code><p>Fondo de página; texto secundario #5C5148</p></div></div>
+    </div>
+    <p class="grupo-label">Estados de una reserva</p>
+    <div class="estados-paleta">
+      <div class="par e-pendiente">Pendiente<span>#8A5300 sobre #FBF1DF · 5.6:1</span></div>
+      <div class="par e-aprobada">Aprobada<span>#1A4A78 sobre #E4EEF8 · 7.8:1</span></div>
+      <div class="par e-prestamo">En préstamo<span>#0E4F48 sobre #E3F3F0 · 8.2:1</span></div>
+      <div class="par e-devuelta">Devuelta<span>#1E5C34 sobre #E3F3E7 · 6.9:1</span></div>
+      <div class="par e-rechazada">Rechazada<span>#9B1C1C sobre #FBECEA · 7.1:1</span></div>
+      <div class="par e-cancelada">Cancelada<span>#4A4A4A sobre #EDEAE6 · 7.4:1</span></div>
+      <div class="par e-noretirada">No retirada<span>#243644 sobre #E7EEF2 · 10.6:1</span></div>
+      <div class="par e-vencida">Vencida<span>#7A2E0E sobre #F8E6D8 · 7.8:1</span></div>
+    </div>
+    <p class="grupo-label">Estados de un objeto</p>
+    <div class="estados-paleta">
+      <div class="par e-mantenimiento">En mantenimiento<span>#5C3D00 sobre #F8EFD4 · 8.6:1</span></div>
+      <div class="par e-danado">Dañado · solo el administrador<span>#6B2A12 sobre #F8E6DC · 8.8:1</span></div>
+      <div class="par" style="background:var(--color-fondo);color:var(--color-texto-secundario);border:1px solid var(--color-borde)">No corresponde a tu carrera<span>Texto cartón sobre papel · 6.5:1. Se ve, y no se puede agregar.</span></div>
+    </div>
+  </section>
+
+  <section class="dos">
+    <div class="seccion">
+      <h2>Tipografía</h2>
+      <div class="tarjeta escala">
+        <div><span style="font-family:var(--fuente-titulos);font-size:32px;font-weight:600">Catálogo de la bodega</span><small>Newsreader 600 · 32</small></div>
+        <div><span style="font-family:var(--fuente-titulos);font-size:24px;font-weight:600">Tu reserva</span><small>Newsreader 600 · 24</small></div>
+        <div><span style="font-size:18px;font-weight:700">Enviar reserva</span><small>Source Sans 3 700 · 18</small></div>
+        <div><span>Se presta por cantidad. Cine, periodismo y comunicación.</span><small>Source Sans 3 400 · 16</small></div>
+        <div><span style="font-size:14px;color:var(--color-texto-secundario)">vie 21 nov · 10:00 – vie 5 dic · 16:00</span><small>Source Sans 3 400 · 14 (mínimo)</small></div>
+      </div>
+    </div>
+    <div class="seccion">
+      <h2>Espacio y forma</h2>
+      <div class="tarjeta">
+        <p>Escala de 4 px: <b>4 · 8 · 12 · 16 · 24 · 32 · 48</b></p>
+        <div class="espacios">
+          <div><i style="width:4px;height:4px"></i>4</div><div><i style="width:8px;height:8px"></i>8</div><div><i style="width:12px;height:12px"></i>12</div>
+          <div><i style="width:16px;height:16px"></i>16</div><div><i style="width:24px;height:24px"></i>24</div><div><i style="width:32px;height:32px"></i>32</div><div><i style="width:48px;height:48px"></i>48</div>
+        </div>
+        <div class="radios">
+          <div style="border-radius:var(--radio-control)">10 px<br>controles</div>
+          <div style="border-radius:var(--radio-tarjeta)">16 px<br>tarjetas</div>
+          <div style="border-radius:var(--radio-etiqueta)">píldora<br>estados</div>
+        </div>
+        <p style="margin-top:var(--espacio-4);font-size:14px;color:var(--color-texto-secundario)">Una sola sombra, solo en la tarjeta de equipo que sí se puede reservar. En mantenimiento o sin unidades, la tarjeta va plana.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>Componentes</h2>
+    <div class="componentes">
+      <div class="tarjeta"><h3>Botones</h3><div class="pila">
+        <span class="btn btn-primario">Enviar reserva</span>
+        <span class="btn btn-secundario">Cancelar reserva</span>
+        <p style="font-size:14px;color:var(--color-texto-secundario)">44 px de alto. Un solo primario por pantalla.</p>
+      </div></div>
+      <div class="tarjeta"><h3>Campos</h3><div class="pila">
+        <div class="campo"><label>Para qué lo vas a usar</label><div class="input">Cortometraje de cine, 6.º semestre</div><p class="ayuda">Sin este texto no se puede enviar la reserva.</p></div>
+        <div class="campo error"><label>Fecha de devolución</label><div class="input">sáb 22 nov · 16:00</div>
+          <p class="msg-error"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 5.5v5.5M10 13.5v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>No se puede devolver en sábado ni en domingo. Elige un día de trabajo.</p></div>
+      </div></div>
+      <div class="tarjeta"><h3>Estados de la reserva</h3><div class="pills">
+        <span class="etiqueta e-pendiente">Pendiente</span>
+        <span class="etiqueta e-aprobada">Aprobada</span>
+        <span class="etiqueta e-prestamo">En préstamo</span>
+        <span class="etiqueta e-devuelta">Devuelta</span>
+        <span class="etiqueta e-rechazada">Rechazada</span>
+        <span class="etiqueta e-cancelada">Cancelada</span>
+        <span class="etiqueta e-noretirada">No retirada</span>
+        <span class="etiqueta e-vencida">Vencida</span>
+      </div></div>
+      <div class="tarjeta"><h3>Tarjeta de equipo</h3><div class="pila">
+        <div class="equipo">
+          <div class="foto" aria-hidden="true">
+            <svg width="72" height="64" viewBox="0 0 72 64" fill="none">
+              <path d="M36 8v22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <rect x="26" y="4" width="20" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M36 30 L14 58 M36 30 L36 58 M36 30 L58 58" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="cuerpo">
+            <h4>Trípode</h4>
+            <p>Se presta por cantidad. Foto de Google del objeto.</p>
+            <p class="quedan">Quedan 18 de 30</p>
+          </div>
+        </div>
+        <div class="equipo fuera">
+          <div class="cuerpo">
+            <span class="etiqueta e-mantenimiento">En mantenimiento</span>
+            <h4 style="margin-top:8px">Micrófono de solapa</h4>
+            <p>No se puede reservar mientras está en mantenimiento.</p>
+          </div>
+        </div>
+      </div></div>
+      <div class="tarjeta"><h3>Rango de la reserva</h3><div class="pila">
+        <div class="fechas">
+          <div class="campo"><label>Inicio</label><div class="input">vie 21 nov · 10:00</div></div>
+          <div class="campo"><label>Devolución</label><div class="input">vie 5 dic · 16:00</div></div>
+        </div>
+        <p style="font-size:14px;color:var(--color-texto-secundario)">Es un rango, no un turno. Puede durar el semestre. Los 30 minutos son el plazo para retirar después de la aprobación.</p>
+      </div></div>
+      <div class="tarjeta"><h3>Mensajes</h3><div class="pila">
+        <div class="mensaje m-carga"><p>Cargando el catálogo…</p></div>
+        <div class="mensaje m-exito"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6.5 10.5l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Reserva enviada. Te avisamos por correo cuando un administrador la apruebe.</p></div>
+        <div class="mensaje m-error"><svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 5.5v5.5M10 13.5v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><p>Ya no quedan trípodes. Quita ese objeto o baja la cantidad.</p></div>
+        <div class="vacia"><p>Todavía no tienes reservas.</p><span class="btn btn-secundario">Ver el catálogo</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>Pantallas de ejemplo</h2>
+    <p class="sub">El estudiante en el celular, con una reserva ya aprobada y otra por armar. El administrador en la computadora de la bodega.</p>
+    <div class="pantallas">
+      <div class="movil">
+        <div class="barra">Bodega COCOA</div>
+        <div class="cuerpo">
+          <div class="estado-pedido">
+            <span class="etiqueta e-aprobada" style="align-self:flex-start">Aprobada</span>
+            <p><b>Tienes hasta las 10:30 para retirar 2 trípodes.</b> Si no llegas, vuelven a quedar disponibles.</p>
+            <p style="font-size:14px;color:var(--color-texto-secundario)">vie 21 nov · 10:00 – vie 5 dic · 16:00</p>
+          </div>
+          <h3>Armar otra reserva</h3>
+          <p style="font-size:14px;color:var(--color-texto-secundario)">1 trípode · lun 24 nov · 09:00 – vie 28 nov · 16:00. Cortometraje de cine, 6.º semestre.</p>
+          <div class="equipo">
+            <div class="foto" aria-hidden="true">
+              <svg width="72" height="64" viewBox="0 0 72 64" fill="none">
+                <path d="M36 8v22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <rect x="26" y="4" width="20" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M36 30 L14 58 M36 30 L36 58 M36 30 L58 58" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="cuerpo">
+              <h4>Trípode</h4>
+              <p>Se presta por cantidad.</p>
+              <p class="quedan">Quedan 18 de 30</p>
+            </div>
+          </div>
+          <div class="equipo fuera">
+            <div class="cuerpo">
+              <span class="etiqueta e-mantenimiento">En mantenimiento</span>
+              <h4 style="margin-top:8px">Micrófono de solapa</h4>
+              <p>No se puede reservar mientras está en mantenimiento.</p>
+            </div>
+          </div>
+          <span class="btn btn-primario">Enviar reserva</span>
+        </div>
+      </div>
+      <div class="escritorio">
+        <div class="barra">Reservas por revisar <span>Bodega COCOA</span></div>
+        <div class="cuerpo">
+          <div class="filtros">
+            <span class="filtro activo">Pendientes · 4</span>
+            <span class="filtro">Aprobadas · 2</span>
+            <span class="filtro">En préstamo · 6</span>
+            <span class="filtro">Vencidas · 1</span>
+          </div>
+          <table>
+            <thead><tr><th>Estudiante</th><th>Equipo</th><th>Devolución</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr class="elegida">
+                <td><a href="#">Ana Ejemplo</a><br><span style="font-size:14px;color:var(--color-texto-secundario)">Cine · 6.º semestre</span>
+                  <div class="nota"><b>Nota interna</b>Devolvió un cable dañado en octubre.</div>
+                </td>
+                <td>2 trípodes</td>
+                <td>vie 5 dic · 16:00</td>
+                <td><span class="etiqueta e-pendiente">Pendiente</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Bruno Ejemplo</a><br><span style="font-size:14px;color:var(--color-texto-secundario)">Periodismo · 3.º semestre</span></td>
+                <td>1 grabadora</td>
+                <td>lun 24 nov · 17:00</td>
+                <td><span class="etiqueta e-prestamo">En préstamo</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Carla Ejemplo</a><br><span style="font-size:14px;color:var(--color-texto-secundario)">Comunicación · 4.º semestre</span></td>
+                <td>1 micrófono de solapa</td>
+                <td>jue 13 nov · 16:00</td>
+                <td><span class="etiqueta e-vencida">Vencida</span></td>
+              </tr>
+              <tr>
+                <td><a href="#">Diego Ejemplo</a><br><span style="font-size:14px;color:var(--color-texto-secundario)">Cine · 2.º semestre</span></td>
+                <td>1 trípode</td>
+                <td>mié 19 nov · 11:00</td>
+                <td><span class="etiqueta e-noretirada">No retirada</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="acciones">
+            <span class="btn btn-primario">Aprobar reserva</span>
+            <span class="btn btn-secundario">Rechazar</span>
+          </div>
+          <p style="font-size:14px;color:var(--color-texto-secundario)">La nota interna no la ve Ana. El daño de un objeto tampoco: solo queda esta nota y, si el equipo sigue dañado, la marca «Dañado» en el catálogo del administrador.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>Tono de voz</h2>
+    <div class="tono">
+      <div><div class="si"><b>Así sí</b>Tu reserva está aprobada. Tienes 30 minutos para retirar 2 trípodes.</div><div class="no"><b>Así no</b>Su solicitud ha sido procesada exitosamente.</div></div>
+      <div><div class="si"><b>Así sí</b>La fecha de entrega ya pasó. Devuelve el equipo en la bodega el próximo día de trabajo.</div><div class="no"><b>Así no</b>Error: préstamo vencido.</div></div>
+      <div><div class="si"><b>Así sí</b>Este trípode está en mantenimiento. Elige otro del catálogo.</div><div class="no"><b>Así no</b>Item no disponible (MNT).</div></div>
+    </div>
+  </section>
+
+  <section class="dos">
+    <div class="seccion reglas"><h2>Reglas</h2><div class="tarjeta"><ul>
+      <li>El estado de la reserva siempre visible y siempre con texto.</li>
+      <li>Un solo botón primario por pantalla.</li>
+      <li>Zonas táctiles de 44 px; foco de 3 px en verde ficha.</li>
+      <li>Al estudiante no se le muestra el daño, la nota interna ni el valor en dólares.</li>
+    </ul></div></div>
+    <div class="seccion reglas"><h2>No hacemos</h2><div class="tarjeta"><ul>
+      <li>Librerías de UI o de CSS.</li>
+      <li>Animaciones, degradados o sombras fuera de la tarjeta de equipo.</li>
+      <li>Modo oscuro, emojis e iconos de librerías.</li>
+      <li>WhatsApp, chatbot o aviso al guardia dentro de la pantalla.</li>
+    </ul></div></div>
+  </section>
+
+  <p class="pie">Las mismas decisiones, en texto y como variables CSS, están en <code>DESIGN.md</code>, en la raíz del repositorio. Los estados y los plazos son los del PRD.</p>
+</div>
+</body>
+</html>
